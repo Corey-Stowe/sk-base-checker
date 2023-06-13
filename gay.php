@@ -82,7 +82,7 @@ if (isset($skArray)) {
   curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
   curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
   curl_setopt($ch, CURLOPT_USERPWD, $sk. ':' . '');
-  curl_setopt($ch, CURLOPT_POSTFIELDS, 'type=card&owner[name]=stowechk&card[number]='.$cc.'&card[exp_month]='.$mes.'&card[exp_year]='.$ano.'');
+  curl_setopt($ch, CURLOPT_POSTFIELDS, 'type=card&owner[name]=stowechk&card[number]='.$cc.'&card[cvc]='.$cvv.'&card[exp_month]='.$mes.'&card[exp_year]='.$ano.'');
    $result1 = curl_exec($ch);
   $s = json_decode($result1, true);
   
